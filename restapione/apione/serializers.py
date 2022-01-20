@@ -7,3 +7,6 @@ class EmployeeSerializer(serializers.Serializer):
     Field = serializers.CharField(max_length=50)
     Employeeid = serializers.IntegerField()
     Address = serializers.CharField(max_length=100)
+
+    def create(self, validate_data):
+        return Employee.objects.create(**validate_data)
